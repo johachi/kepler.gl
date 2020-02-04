@@ -40,7 +40,17 @@ export const HexagonIdVisConfigs = {
   sizeRange: 'elevationRange',
   coverageRange: 'coverageRange',
   elevationScale: 'elevationScale',
-  stroked: 'stroked'
+  stroked: 'stroked',
+  thickness: {
+    type: 'number',
+    defaultValue: 1,
+    label: 'Stroke Width',
+    isRanged: false,
+    range: [0, 100],
+    step: 0.1,
+    group: 'stroke',
+    property: 'thicknes'
+  }
 };
 
 function hexToRgb(hex) {
@@ -278,6 +288,7 @@ export default class HexagonIdLayer extends Layer {
         getHexagon: x => x.id,
 
         stroked: visConfig.stroked,
+        lineWidthScale: visConfig.thickness,
 
         // coverage
         coverage: config.coverageField ? 1 : visConfig.coverage,

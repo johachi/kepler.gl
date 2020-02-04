@@ -457,6 +457,26 @@ export default function LayerConfiguratorFactory(SourceDataSelector) {
             </ConfigGroupCollapsibleContent>
           </LayerConfigGroup>
 
+          {/* Stroke Width */}
+          <LayerConfigGroup
+            {...visConfiguratorProps}
+            {...LAYER_VIS_CONFIGS.stroked}
+            label="Stroke Width"
+            collapsible
+          >
+            <VisConfigSlider
+              {...LAYER_VIS_CONFIGS.thickness}
+              {...visConfiguratorProps}
+              label={false}
+            />
+            {/* <ConfigGroupCollapsibleContent>
+              <ChannelByValueSelector
+                channel={layer.visualChannels.size}
+                {...layerChannelConfigProps}
+              />
+            </ConfigGroupCollapsibleContent> */}
+          </LayerConfigGroup>
+
           {/* Coverage */}
           <LayerConfigGroup label={'coverage'} collapsible>
             {!layer.config.coverageField ? (
