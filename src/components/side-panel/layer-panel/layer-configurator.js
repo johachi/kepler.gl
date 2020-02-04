@@ -457,6 +457,19 @@ export default function LayerConfiguratorFactory(SourceDataSelector) {
             </ConfigGroupCollapsibleContent>
           </LayerConfigGroup>
 
+          {/* stroke color */}
+          <LayerConfigGroup
+            {...layer.visConfigSettings.stroked}
+            {...visConfiguratorProps}
+            label="Stroke Color"
+          >
+            <LayerColorSelector
+              {...visConfiguratorProps}
+              selectedColor={layer.config.visConfig.strokeColor}
+              property="strokeColor"
+            />
+          </LayerConfigGroup>
+
           {/* Stroke Width */}
           <LayerConfigGroup
             {...visConfiguratorProps}
