@@ -140,6 +140,7 @@ export const h3Sample = {
               coverage: 1,
               opacity: 0.51,
               stroked: true,
+              strokeColor: [255, 0, 0],
               colorRange: {
                 colors: ['#DDB27C', '#12939A', '#88572C', '#FF991F']
               }
