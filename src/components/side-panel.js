@@ -39,6 +39,9 @@ import {
   EXPORT_MAP_ID,
   PANELS
 } from 'constants/default-settings';
+import { addDataToMap } from 'actions';
+import { h3Sample } from 'constants/h3DataSample';
+import { connect } from 'react-redux';
 
 const SidePanelContent = styled.div`
   ${props => props.theme.sidePanelScrollBar};
@@ -81,7 +84,7 @@ export default function SidePanelFactory(
   InteractionManager,
   MapManager
 ) {
-  return class SidePanel extends PureComponent {
+  class SidePanel extends PureComponent {
     static propTypes = {
       filters: PropTypes.arrayOf(PropTypes.any).isRequired,
       interactionConfig: PropTypes.object.isRequired,
@@ -207,6 +210,7 @@ export default function SidePanelFactory(
               onExportMap={this._onExportMap}
               onSaveMap={this.props.onSaveMap}
             />
+            <button onClick={() => this.props.dispatch(addDataToMap(h3Sample))}>Hello</button>
             <PanelToggle
               panels={PANELS}
               activePanel={activeSidePanel}
@@ -256,4 +260,10 @@ export default function SidePanelFactory(
       );
     }
   };
+
+  const stateToProps = state => state;
+  const dispatchToProps = dispatch => ({dispatch});
+
+  return connect(stateToProps,dispatchToProps)(SidePanel);
+ 
 }
