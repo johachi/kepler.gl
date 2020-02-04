@@ -41,6 +41,7 @@ export const HexagonIdVisConfigs = {
   coverageRange: 'coverageRange',
   elevationScale: 'elevationScale',
   stroked: 'stroked',
+  strokeColor: 'strokeColor',
   thickness: {
     type: 'number',
     defaultValue: 1,
@@ -289,6 +290,7 @@ export default class HexagonIdLayer extends Layer {
 
         stroked: visConfig.stroked,
         lineWidthScale: visConfig.thickness,
+        getLineColor: visConfig.strokeColor || [0, 0, 0, 255],
 
         // coverage
         coverage: config.coverageField ? 1 : visConfig.coverage,
